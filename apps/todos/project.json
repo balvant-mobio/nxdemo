@@ -5,15 +5,22 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/todos",
         "index": "apps/todos/src/index.html",
         "main": "apps/todos/src/main.ts",
         "polyfills": "apps/todos/src/polyfills.ts",
         "tsConfig": "apps/todos/tsconfig.app.json",
-        "assets": ["apps/todos/src/favicon.ico", "apps/todos/src/assets"],
-        "styles": ["apps/todos/src/styles.css"],
+        "assets": [
+          "apps/todos/src/favicon.ico",
+          "apps/todos/src/assets"
+        ],
+        "styles": [
+          "apps/todos/src/styles.css"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -73,12 +80,17 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["apps/todos/**/*.ts", "apps/todos/**/*.html"]
+        "lintFilePatterns": [
+          "apps/todos/**/*.ts",
+          "apps/todos/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/todos"],
+      "outputs": [
+        "coverage/apps/todos"
+      ],
       "options": {
         "jestConfig": "apps/todos/jest.config.ts",
         "passWithNoTests": true

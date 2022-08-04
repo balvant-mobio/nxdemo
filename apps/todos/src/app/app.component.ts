@@ -11,7 +11,7 @@ interface Todo {
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  todos: Todo[] = [{ title: 'Todo 1' }, { title: 'Todo 2' }];
+  todos: Todo[] = []; //[{ title: 'Todo 1' }, { title: 'Todo 2' }];
 
   constructor(private http: HttpClient) {
     this.fetch();
@@ -22,8 +22,15 @@ export class AppComponent {
   }
 
   addTodo() {
-    this.todos.push({
+    /*  this.todos.push({
       title: `New todo ${Math.floor(Math.random() * 1000)}`,
-    });
+    }); */
+    this.http
+      .post<Todo[]>('/api/addtodo', {
+        title: `New todo ${Math.floor(Math.random() * 1000)}`,
+      })
+      .subscribe((r) => {
+        this.todos = r;
+      });
   }
 }
