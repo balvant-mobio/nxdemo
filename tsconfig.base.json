@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nxdemo/data": ["libs/data/src/index.ts"]
+      "@nxdemo/data": ["libs/data/src/index.ts"],
+      "@nxdemo/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
