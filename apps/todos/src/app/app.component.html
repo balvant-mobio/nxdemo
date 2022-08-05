@@ -1,5 +1,10 @@
 <h1>Todos</h1>
 
-<nxdemo-todos [todos]="todos"></nxdemo-todos>
+<form [formGroup]="todoForm" style="margin-bottom: 20px">
+  <label for="title">Title: </label>
+  <input id="title" type="text" formControlName="title" />
+</form>
 
 <button id="add-todo" (click)="addTodo()">Add Todo</button>
+
+<nxdemo-todos [todos]="todos"></nxdemo-todos>
