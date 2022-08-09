@@ -1,5 +1,24 @@
-<h1>Todos</h1>
+<h1>Profile</h1>
+<form [formGroup]="profileForm">
+  <label for="name">Name: </label>
+  <input id="name" type="text" formControlName="name" /> <br />
+  <label for="locations">Locations: </label>
+  <ng-container formArrayName="locations">
+    <div *ngFor="let _ of locationControls; index as i">
+      <ng-container [formGroupName]="i">
+        <label for="city">City: </label>
+        <input id="city" type="text" formControlName="city" />
 
+        <label for="state">state: </label>
+        <input id="state" type="text" formControlName="state" />
+      </ng-container>
+    </div>
+  </ng-container>
+  <label for="action">Action: </label>
+  <button id="submit" type="button" (click)="logForm()">Log Form</button>
+</form>
+
+<h1>Todos</h1>
 <form [formGroup]="todoForm" style="margin-bottom: 20px">
   <label for="title">Title: </label>
   <input id="title" type="text" formControlName="title" />
