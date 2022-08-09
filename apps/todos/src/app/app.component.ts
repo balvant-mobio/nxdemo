@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
   constructor(
     private http: HttpClient,
     fb: FormBuilder,
-    ufb: UntypedFormBuilder
+    private ufb: UntypedFormBuilder
   ) {
     this.fb = <IFormBuilder>fb;
     this.todoForm = this.fb.group<Todo>({
@@ -64,6 +64,18 @@ export class AppComponent implements OnInit {
   private _validateState(control: UntypedFormControl): any | null {
     if (control.value === 'gujarat') return null;
     else return { 'invalid state': true };
+  }
+
+  pushControl() {
+    const locationsFormArray = this.profileForm.controls[
+      'locations'
+    ] as UntypedFormArray;
+    locationsFormArray.push(
+      this.ufb.group({
+        city: ['', Validators.required],
+        state: ['', this._validateState.bind(this)],
+      })
+    );
   }
 
   logForm() {
